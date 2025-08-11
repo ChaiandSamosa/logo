@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CESP Young Scholars Conference</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+
+  .container {
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: #2d3e50; /* Dark academic blue */
+    font-style: italic;
+    letter-spacing: 0.5px;
+    height: 40px;
+  }
+
+  /* Slide animation */
+  @keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+.slide {
+  animation: slideIn 3s ease-out;
+}
+
+ 
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://raw.githubusercontent.com/ChaiandSamosa/google-site-ysc-header/refs/heads/main/images/logo1.png" class="logo">
+  <div class="tagline" id="tagline">Loading...</div>
+</div>
+
+<script>
+  const lines = [
+    "Every challenge India faces is an invitation to innovate, collaborate, and rise stronger.",
+    "Gathering together is the first step towards discovering solutions and igniting progress.",
+    "It is through dialogue and debate that we build bridges to a brighter future.",
+    "Let us turn thought into action, and challenges into milestones."
+  ];
+  
+  let index = 0;
+  const taglineEl = document.getElementById("tagline");
+
+  function updateTagline() {
+    taglineEl.classList.remove("fade");
+    void taglineEl.offsetWidth; // restart animation
+    taglineEl.textContent = lines[index];
+    taglineEl.classList.add("fade");
+    index = (index + 1) % lines.length;
+  }
+
+  updateTagline();
+  setInterval(updateTagline, 3000);
+</script>
+
+</body>
+</html>
